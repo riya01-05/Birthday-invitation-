@@ -17,11 +17,13 @@ box-sizing:border-box;
 font-family:'Poppins',sans-serif;
 }
 
-html,body{
-height:100%;
-overflow:hidden;
-background:#dfefff;
+html, body{
+    width:100%;
+    height:100%;
+    overflow-x:hidden;
+    overflow-y:auto;
 }
+
 
 /* Background */
 
@@ -150,6 +152,12 @@ button:hover{
 transform:scale(1.05);
 
 background:#1d4f91;
+.buttons{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
 
 }
 
@@ -260,37 +268,26 @@ justify-content:center;
 /* Gallery */
 
 .gallery{
-
-display:flex;
-
-gap:20px;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:20px;
+    width:100%;
+    max-width:900px;
+    margin:30px auto;
+    justify-items:center;
 }
 
 .gallery img{
-
-width:260px;
-
-height:320px;
-
-border-radius:20px;
-
-object-fit:cover;
-
-box-shadow:0 10px 20px rgba(0,0,0,.15);
-
-transition:.4s;
-
+    width:220px;
+    height:280px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+    transition:.3s;
 }
 
 .gallery img:hover{
-
-transform:scale(1.05);
-
+    transform:scale(1.05);
 }
 
 /* Countdown */
@@ -333,32 +330,28 @@ color:#666;
 
 }
 
-@media(max-width:768px){
+@media (max-width:768px){
 
 .title{
-
-font-size:46px;
-
+    font-size:42px;
 }
 
 .subtitle{
-
-font-size:22px;
-
+    font-size:20px;
 }
 
 .text{
+    font-size:17px;
+}
 
-font-size:18px;
-
+.gallery{
+    grid-template-columns:1fr;
 }
 
 .gallery img{
-
-width:180px;
-
-height:220px;
-
+    width:85%;
+    max-width:300px;
+    height:auto;
 }
 
 }
@@ -732,33 +725,19 @@ seconds+" Seconds";
 
 /* Music */
 
-const Music=document.getElementById("music");
+const Music = document.getElementById("music");
+const butn = document.getElementById("musicBtn");
 
-const musicBtn=document.getElementById("musicBtn");
-
-let playing=false;
-
-musicBtn.onclick=function(){
-
-if(!playing){
-
-music.play();
-
-musicBtn.innerHTML="🔇 Pause Music";
-
-playing=true;
-
-}else{
-
-music.pause();
-
-musicBtn.innerHTML="🎵 Play Music";
-
-playing=false;
-
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+        btn.innerHTML = "⏸ Pause Music";
+    } else {
+        music.pause();
+        btn.innerHTML = "🎵 Play Music";
+    }
 }
 
-}
 
 /* Confetti */
 
@@ -802,7 +781,15 @@ conf.remove();
 
 /* Confetti on Last Page */
 
-pages[pages.length-1].addEventListener("click",confetti);
+function showPage(index){
+    pages.forEach(page=>page.classList.remove("active"));
+    pages[index].classList.add("active");
+    currentPage=index;
+
+    if(index===pages.length-1){
+        confetti();
+    }
+}
 
 </script>
 <script>
