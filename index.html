@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Arneet's 1st Birthday</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html,body{
+height:100%;
+overflow:hidden;
+background:#dfefff;
+}
+
+/* Background */
+
+body{
+background:linear-gradient(135deg,#dbeeff,#ffffff,#d7d7d7);
+}
+
+/* Pages */
+
+.page{
+
+width:100vw;
+
+height:100vh;
+
+display:none;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+text-align:center;
+
+padding:40px;
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+transition:.8s;
+
+}
+
+.page.active{
+
+display:flex;
+
+animation:fade .8s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateX(60px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+}
+
+/* Titles */
+
+.title{
+
+font-family:'Pacifico',cursive;
+
+font-size:70px;
+
+color:#2d5ea8;
+
+margin-bottom:20px;
+
+}
+
+.subtitle{
+
+font-size:28px;
+
+margin-bottom:20px;
+
+color:#5d6d7e;
+
+}
+
+.text{
+
+font-size:22px;
+
+max-width:850px;
+
+line-height:1.8;
+
+}
+
+/* Buttons */
+
+button{
+
+padding:15px 35px;
+
+margin:20px;
+
+border:none;
+
+border-radius:50px;
+
+background:#2d5ea8;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.05);
+
+background:#1d4f91;
+
+}
+
+/* Floating Balloons */
+
+.balloon{
+
+position:absolute;
+
+bottom:-150px;
+
+font-size:55px;
+
+animation:float 12s linear infinite;
+
+opacity:.85;
+
+}
+
+.balloon:nth-child(1){
+
+left:8%;
+
+animation-delay:0s;
+
+}
+
+.balloon:nth-child(2){
+
+left:30%;
+
+animation-delay:3s;
+
+}
+
+.balloon:nth-child(3){
+
+left:50%;
+
+animation-delay:6s;
+
+}
+
+.balloon:nth-child(4){
+
+left:70%;
+
+animation-delay:2s;
+
+}
+
+.balloon:nth-child(5){
+
+left:90%;
+
+animation-delay:5s;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+100%{
+
+transform:translateY(-130vh);
+
+}
+
+}
+
+/* Cards */
+
+.card{
+
+background:rgba(255,255,255,.85);
+
+backdrop-filter:blur(12px);
+
+padding:35px;
+
+border-radius:20px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+width:320px;
+
+margin:15px;
+
+}
+
+.row{
+
+display:flex;
+
+gap:25px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+/* Gallery */
+
+.gallery{
+
+display:flex;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+.gallery img{
+
+width:260px;
+
+height:320px;
+
+border-radius:20px;
+
+object-fit:cover;
+
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+transition:.4s;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.05);
+
+}
+
+/* Countdown */
+
+#countdown{
+
+font-size:42px;
+
+font-weight:bold;
+
+color:#2d5ea8;
+
+margin-top:20px;
+
+}
+
+/* Music Button */
+
+#musicBtn{
+
+position:fixed;
+
+bottom:20px;
+
+right:20px;
+
+z-index:1000;
+
+}
+
+footer{
+
+position:absolute;
+
+bottom:20px;
+
+font-size:18px;
+
+color:#666;
+
+}
+
+@media(max-width:768px){
+
+.title{
+
+font-size:46px;
+
+}
+
+.subtitle{
+
+font-size:22px;
+
+}
+
+.text{
+
+font-size:18px;
+
+}
+
+.gallery img{
+
+width:180px;
+
+height:220px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Floating Balloons -->
+
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+
+<!-- PAGE 1 -->
+
+<section class="page active">
+
+<h2 class="subtitle">🎉 You're Invited 🎉</h2>
+
+<h1 class="title">Arneet's<br>1st Birthday</h1>
+
+<p class="text">
+
+A beautiful celebration filled with love,
+laughter and unforgettable memories.
+
+</p>
+
+<br>
+
+<button onclick="nextPage()">Open Invitation ➜</button>
+
+<footer>Made with ❤️ for Arneet</footer>
+
+</section>
+<!-- ========================= -->
+<!-- PAGE 2 - INVITATION -->
+<!-- ========================= -->
+
+<section class="page">
+
+<h2 class="subtitle">💌 A Special Invitation</h2>
+
+<h1 class="title">Welcome</h1>
+
+<p class="text">
+
+A tiny hand to hold,
+a heart so full of love...
+
+Our little sunshine is turning
+
+<b>ONE!</b>
+
+We warmly invite you and your family to celebrate this wonderful milestone.
+
+Your love, laughter and blessings will make this day even more memorable.
+
+</p>
+
+<br>
+
+<div>
+
+<button onclick="prevPage()">⬅ Previous</button>
+
+<button onclick="nextPage()">Next ➜</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 3 - DETAILS -->
+<!-- ========================= -->
+
+<section class="page">
+
+<h1 class="title">Celebration Details</h1>
+
+<div class="row">
+
+<div class="card">
+
+<h2>📅 Date</h2>
+
+<br>
+
+<h3>1 August</h3>
+
+</div>
+
+<div class="card">
+
+<h2>🕧 Time</h2>
+
+<br>
+
+<h3>12:30 PM</h3>
+
+</div>
+
+<div class="card">
+
+<h2>📍 Venue</h2>
+
+<br>
+
+<h3>The White Rose Banquet Hall</h3>
+
+</div>
+
+</div>
+
+<br>
+
+<div>
+
+<button onclick="prevPage()">⬅ Previous</button>
+
+<button onclick="nextPage()">Next ➜</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 4 - PHOTO GALLERY -->
+<!-- ========================= -->
+
+<section class="page">
+
+<h1 class="title">Our Little Star</h1>
+
+<p class="subtitle">
+
+Every smile tells a beautiful story ❤️
+
+</p>
+
+<div class="gallery">
+
+<img src="images/duggu 1.jpeg" alt="Arneet">
+
+<img src="images/image (1).png" alt="Arneet">
+
+<img src="images/image (2).png" alt="Arneet">
+
+</div>
+<div class="buttons">
+    <button onclick="prevPage()">⬅ Previous</button>
+    <button onclick="nextPage()">Next ➜</button>
+</div>
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 5 - COUNTDOWN -->
+<!-- ========================= -->
+
+<section class="page">
+
+<h1 class="title">
+
+⏳ Countdown
+
+</h1>
+
+<p class="subtitle">
+
+Only a little time left until the celebration!
+
+</p>
+
+<div id="countdown">
+
+Loading...
+
+</div>
+
+<br>
+
+<div>
+
+<button onclick="prevPage()">⬅ Previous</button>
+
+<button onclick="nextPage()">Next ➜</button>
+
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- PAGE 6 - THANK YOU -->
+<!-- ========================= -->
+
+<section class="page">
+
+<h1 class="title">
+
+🎂 See You Soon!
+
+</h1>
+
+<p class="text">
+
+We can't wait to celebrate
+
+Arneet's First Birthday
+
+with you.
+
+Thank you for being a part of our happiness.
+
+💙
+
+</p>
+
+<br>
+
+🎉 🎂 🎁 🎈 ✨
+
+<br><br>
+
+<div>
+
+<button onclick="prevPage()">⬅ Previous</button>
+
+</div>
+
+</section>
+
+<!-- Background Music -->
+
+<audio id="music" loop>
+    <source src="Music/riverbend-serenade.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" onclick="toggleMusic()">
+🎵 Play Music
+</button>
+<script>
+
+const pages = document.querySelectorAll(".page");
+
+let currentPage = 0;
+
+function showPage(index){
+
+pages.forEach((page)=>{
+
+page.classList.remove("active");
+
+});
+
+pages[index].classList.add("active");
+
+currentPage=index;
+
+}
+
+function nextPage(){
+
+if(currentPage<pages.length-1){
+
+showPage(currentPage+1);
+
+}
+
+}
+
+function prevPage(){
+
+if(currentPage>0){
+
+showPage(currentPage-1);
+
+}
+
+}
+
+/* Keyboard Navigation */
+
+document.addEventListener("keydown",(e)=>{
+
+if(e.key==="ArrowRight"){
+
+nextPage();
+
+}
+
+if(e.key==="ArrowLeft"){
+
+prevPage();
+
+}
+
+});
+
+/* Swipe Navigation */
+
+let startX=0;
+
+document.addEventListener("touchstart",(e)=>{
+
+startX=e.touches[0].clientX;
+
+});
+
+document.addEventListener("touchend",(e)=>{
+
+let endX=e.changedTouches[0].clientX;
+
+if(startX-endX>80){
+
+nextPage();
+
+}
+
+if(endX-startX>80){
+
+prevPage();
+
+}
+
+});
+
+/* Countdown */
+
+const countdown=document.getElementById("countdown");
+
+const targetDate=new Date("August 1, 2026 12:30:00").getTime();
+
+setInterval(()=>{
+
+const now=new Date().getTime();
+
+const distance=targetDate-now;
+
+if(distance<=0){
+
+countdown.innerHTML="🎉 It's Celebration Time!";
+
+return;
+
+}
+
+const days=Math.floor(distance/(1000*60*60*24));
+
+const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+
+const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+
+const seconds=Math.floor((distance%(1000*60))/1000);
+
+countdown.innerHTML=
+
+days+" Days<br>"+
+
+hours+" Hours<br>"+
+
+minutes+" Minutes<br>"+
+
+seconds+" Seconds";
+
+},1000);
+
+/* Music */
+
+const Music=document.getElementById("music");
+
+const musicBtn=document.getElementById("musicBtn");
+
+let playing=false;
+
+musicBtn.onclick=function(){
+
+if(!playing){
+
+music.play();
+
+musicBtn.innerHTML="🔇 Pause Music";
+
+playing=true;
+
+}else{
+
+music.pause();
+
+musicBtn.innerHTML="🎵 Play Music";
+
+playing=false;
+
+}
+
+}
+
+/* Confetti */
+
+function confetti(){
+
+for(let i=0;i<80;i++){
+
+let conf=document.createElement("div");
+
+conf.innerHTML=["🎉","✨","🎈","🎊"][Math.floor(Math.random()*4)];
+
+conf.style.position="fixed";
+
+conf.style.left=Math.random()*100+"vw";
+
+conf.style.top="-50px";
+
+conf.style.fontSize=(20+Math.random()*20)+"px";
+
+conf.style.transition="4s linear";
+
+conf.style.zIndex="9999";
+
+document.body.appendChild(conf);
+
+setTimeout(()=>{
+
+conf.style.top="110vh";
+
+},100);
+
+setTimeout(()=>{
+
+conf.remove();
+
+},4500);
+
+}
+
+}
+
+/* Confetti on Last Page */
+
+pages[pages.length-1].addEventListener("click",confetti);
+
+</script>
+<script>
+const music = document.getElementById("music");
+const btn = document.getElementById("musicBtn");
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+        btn.innerHTML = "⏸ Pause Music";
+    } else {
+        music.pause();
+        btn.innerHTML = "🎵 Play Music";
+    }
+}
+</script>
+</body>
+</html>
