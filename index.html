@@ -268,26 +268,24 @@ justify-content:center;
 /* Gallery */
 
 .gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    display:flex;
+    overflow-x:auto;
     gap:20px;
-    width:100%;
-    max-width:900px;
-    margin:30px auto;
-    justify-items:center;
+    padding:20px;
+    scroll-snap-type:x mandatory;
+}
+
+.gallery::-webkit-scrollbar{
+    display:none;
 }
 
 .gallery img{
-    width:220px;
-    height:280px;
+    flex:0 0 250px;
+    height:320px;
     object-fit:cover;
     border-radius:20px;
-    box-shadow:0 10px 20px rgba(0,0,0,.15);
-    transition:.3s;
-}
-
-.gallery img:hover{
-    transform:scale(1.05);
+    scroll-snap-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
 }
 
 /* Countdown */
@@ -496,15 +494,11 @@ Your love, laughter and blessings will make this day even more memorable.
 Every smile tells a beautiful story ❤️
 
 </p>
-
 <div class="gallery">
-
-<img src="images/duggu 1.jpeg" alt="Arneet">
-
-<img src="images/image (1).png" alt="Arneet">
-
-<img src="images/image (2).png" alt="Arneet">
-
+    <img src="images/duggu 1.jpeg" alt="">
+    <img src="images/image (1).png" alt="">
+    <img src="images/image (2).png" alt="">
+</div>
 </div>
 <div class="buttons">
     <button onclick="prevPage()">⬅ Previous</button>
